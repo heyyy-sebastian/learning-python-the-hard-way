@@ -1,3 +1,7 @@
+#divider method
+def make_section():
+	print '-' * 10
+
 #map of state abbrev
 states = {
 	'Oregon':'OR',
@@ -17,10 +21,6 @@ cities = {
 #add more cities
 cities['NY'] = 'New York'
 cities['OR'] = 'Portland'
-
-#divider method
-def make_section():
-	print '-' * 10
 
 #print some cities
 make_section()
@@ -56,4 +56,4 @@ if not state:
 
 #get a city with a default value
 city = cities.get('TX', 'Does Not Exist')
-print "The city for the state 'TX' is %s" % city
+print "The city for the state 'TX' is: %s" % city
