@@ -24,7 +24,7 @@ PHRASES ={
 if len(sys.argv) == 2 and sys.argv[1] == "english":
 	PHRASE_FIRST = True
 else:
-	PHRASE_FIRST
+	PHRASE_FIRST = False
 
 #load words from website
 for word in urlopen(WORD_URL).readlines():
@@ -33,12 +33,12 @@ for word in urlopen(WORD_URL).readlines():
 def convert(snippet, phrase):
 	class_names = [w.capitalize() for w in
 					random.sample(WORDS, snippet.count("%%%"))]
-	other_names = random.samples(WORDS, snippet.count("***"))
+	other_names = random.sample(WORDS, snippet.count("***"))
 	results = []
 	param_names = []
 
-	for i in range(0, snippet.count("@@@"))
-		param_count = random.randit(1,3)
+	for i in range(0, snippet.count("@@@")):
+		param_count = random.randint(1,3)
 		param_names.append(', '.join(random.sample(WORDS, param_count)))
 
 	for sentence in snippet, phrase:
@@ -55,6 +55,10 @@ def convert(snippet, phrase):
 		#fake parameter lists
 		for word in param_names:
 			result = result.replace("@@@", word, 1)
+
+		results.append(result)
+		
+	return results
 
 #run until they hit ctrl-d
 try:
@@ -74,4 +78,4 @@ try:
 			print "ANSWER: %s\n\n" % answer
 except EOFError:
 	print "\nBye"
-	
+
