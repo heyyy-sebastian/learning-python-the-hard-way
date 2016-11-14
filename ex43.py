@@ -83,6 +83,10 @@ class CentralCorridor(Scene):
             print "DOES NOT COMPUTE!"
             return 'central_corridor'
 
+class LaserWeaponryArmory(Scene):
+	def enter(self):
+		pass
+
 class TheBridge(Scene):
 
 	def enter(self):
