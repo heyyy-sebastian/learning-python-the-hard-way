@@ -179,17 +179,32 @@ class EscapePod(Scene):
 
             return 'finished'
 
+class Finished(Scene):
+
+    def enter(self):
+        print "You won! Good job."
+        return 'finished'
+
 class Map(object):
 
-	def __init__(self, start_scene):
-		pass
+    scenes = {
+        'central_corridor': CentralCorridor(),
+        'laser_weapon_armory': LaserWeaponArmory(),
+        'the_bridge': TheBridge(),
+        'escape_pod': EscapePod(),
+        'death': Death(),
+        'finished': Finished(),
+    }
 
-	def next_scene(self, scene_name):
-		pass
+    def __init__(self, start_scene):
+        self.start_scene = start_scene
 
-	def opening_scene(self):
-		pass
+    def next_scene(self, scene_name):
+        val = Map.scenes.get(scene_name)
+        return val
 
+    def opening_scene(self):
+        return self.next_scene(self.start_scene)
 
 a_map = Map('Central Corridor')
 a_game = Engine(a_map)
