@@ -17,8 +17,8 @@ class Engine(object):
 		last_scene = self.scene_map.next_scene('finished')
 
 		while current_scene != last_scene:
-			next_scene_name = current_scene.enter()
-			current_scene = self.scene_map.next_scene(next_scene_name)
+		    next_scene_name = current_scene.enter()
+		    current_scene = self.scene_map.next_scene(next_scene_name)
 
 		current_scene.enter()
 
@@ -37,7 +37,7 @@ class Death(Scene):
 
 class CentralCorridor(Scene):
 
-	def enter(self):
+    def enter(self):
         print "The Gothons of Planet Percal #25 have invaded your ship and destroyed"
         print "your entire crew.  You are the last surviving member and your last"
         print "mission is to get the neutron destruct bomb from the Weapons Armory,"
@@ -192,7 +192,7 @@ class Map(object):
 
     scenes = {
         'central_corridor': CentralCorridor(),
-        'laser_weapon_armory': LaserWeaponArmory(),
+        'laser_weapon_armory': LaserWeaponryArmory(),
         'the_bridge': TheBridge(),
         'escape_pod': EscapePod(),
         'death': Death(),
@@ -209,6 +209,6 @@ class Map(object):
     def opening_scene(self):
         return self.next_scene(self.start_scene)
 
-a_map = Map('Central Corridor')
+a_map = Map('central_corridor')
 a_game = Engine(a_map)
 a_game.play()
