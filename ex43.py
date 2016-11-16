@@ -38,7 +38,7 @@ class Death(Scene):
 class CentralCorridor(Scene):
 
 	def enter(self):
-		print "The Gothons of Planet Percal #25 have invaded your ship and destroyed"
+        print "The Gothons of Planet Percal #25 have invaded your ship and destroyed"
         print "your entire crew.  You are the last surviving member and your last"
         print "mission is to get the neutron destruct bomb from the Weapons Armory,"
         print "put it in the bridge, and blow the ship up after getting into an "
@@ -48,7 +48,6 @@ class CentralCorridor(Scene):
         print "a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown costume"
         print "flowing around his hate filled body.  He's blocking the door to the"
         print "Armory and about to pull a weapon to blast you."
-        print "Do you shoot, dodge or tell a joke?"
 
         action = raw_input("> ")
 
@@ -58,7 +57,8 @@ class CentralCorridor(Scene):
             print "off your aim.  Your laser hits his costume but misses him entirely.  This"
             print "completely ruins his brand new costume his mother bought him, which"
             print "makes him fly into an insane rage and blast you repeatedly in the face until"
-            print "you are dead. Then he eats you."
+            print "you are dead.  Then he eats you."
+            return 'death'
 
         elif action == "dodge!":
             print "Like a world class boxer you dodge, weave, slip and slide right"
@@ -77,7 +77,7 @@ class CentralCorridor(Scene):
             print "While he's laughing you run up and shoot him square in the head"
             print "putting him down, then jump through the Weapon Armory door."
             return 'laser_weapon_armory'
-            
+
         else:
             print "DOES NOT COMPUTE!"
             return 'central_corridor'
